@@ -540,13 +540,11 @@ nav ul a:hover::after { width: 100%; }
 
 /* ── SCROLL REVEALS ────────────────────────── */
 @keyframes upIn { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
-
-/* JS adds .js-loaded to <html> — without it, reveals are fully visible (no blank flash) */
-html.js-loaded .reveal {
+.reveal {
   opacity: 0; transform: translateY(28px);
-  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);  /* weighted deceleration */
 }
-.reveal.in { opacity: 1 !important; transform: none !important; }
+.reveal.in { opacity: 1; transform: none; }
 .d1 { transition-delay: 0.14s; }
 .d2 { transition-delay: 0.26s; }
 .d3 { transition-delay: 0.38s; }

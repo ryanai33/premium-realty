@@ -2,9 +2,6 @@
    PREMIUM REAL ESTATE NZ · V6 · main.js
    ══════════════════════════════════════════ */
 
-// Mark JS as loaded immediately — enables CSS reveals safely
-document.documentElement.classList.add('js-loaded');
-
 // ── Nav scroll shadow ──────────────────────
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
