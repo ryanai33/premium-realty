@@ -540,7 +540,7 @@ nav ul a:hover::after { width: 100%; }
 
 /* ── SCROLL REVEALS ────────────────────────── */
 @keyframes upIn { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
-.reveal {
+html.js-loaded .reveal {
   opacity: 0; transform: translateY(28px);
   transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);  /* weighted deceleration */
 }
