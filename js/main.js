@@ -2,6 +2,9 @@
    PREMIUM REAL ESTATE NZ · V6 · main.js
    ══════════════════════════════════════════ */
 
+// Mark JS as loaded immediately — enables CSS reveals safely
+document.documentElement.classList.add('js-loaded');
+
 // ── Nav scroll shadow ──────────────────────
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
@@ -14,7 +17,40 @@ const revealObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
+// ── Animated number counters ───────────────
+// Triggers once when the about section enters view
+function animateCounter(el) {
+  const target = el.dataset.target;
+  const isNum  = !isNaN(parseInt(target));
+  if (!isNum) return; // "NZ#1", "Private" etc — skip
+  const end    = parseInt(target);
+  const suffix = target.replace(/[0-9]/g, '');
+  const dur    = 1800;
+  const start  = performance.now();
+  function step(now) {
+    const p = Math.min((now - start) / dur, 1);
+    // Ease out cubic
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(eased * end) + suffix;
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      animateCounter(e.target);
+      counterObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+
 // ── Concierge chat ─────────────────────────
+// Voice: Robert Milne — direct, warm, authoritative, NZ-inflected
+// Never uses generic chatbot phrases like "How can I assist you?"
 function toggleChat() {
   const panel = document.getElementById('concierge-panel');
   const badge = document.getElementById('c-badge');
@@ -22,12 +58,13 @@ function toggleChat() {
   if (badge) badge.style.display = 'none';
 }
 
-const replies = [
-  "I'd be delighted to help. Our specialists can arrange a private viewing at your convenience — shall I connect you with Robert or Richard Milne directly?",
-  "Wonderful choice of area. We have several exceptional residences on Auckland's North Shore right now. Would you like me to share current listings?",
-  "Absolutely — I can arrange a complimentary appraisal with our leading specialists. What suburb are you considering?",
-  "That's a great question. Premium has specialised in North Shore coastal and lifestyle properties since 1984. Our team knows these streets intimately — may I connect you with a specialist?",
-  "We'd love to help with that. Private viewings are available seven days a week at times that suit you. What property or area interests you most?"
+// Robert Milne's voice — knows the market, measured confidence
+const agentReplies = [
+  "I'd be happy to arrange a private viewing for you — we keep our open homes exclusive. When would work best?",
+  "That's a good question. Richard and I know the North Shore coastal market better than anyone — we've been the top sales team here for seven consecutive years. What are you looking for?",
+  "We're currently working with a small number of qualified buyers. If you can tell me what you have in mind, I'll be direct with you about what's available and what's coming to market privately.",
+  "Our most sought-after properties rarely reach the general market. If you're serious about finding something exceptional, a conversation with me directly is the best place to start.",
+  "I appreciate your interest. We represent some genuinely rare properties on the North Shore — the sort that change hands quietly. What's your timeline looking like?"
 ];
 let replyIndex = 0;
 
@@ -45,23 +82,24 @@ function sendMessage() {
   input.value = '';
   msgs.scrollTop = msgs.scrollHeight;
 
-  // Typing indicator
+  // Typing indicator — measured, not instant
   const typing = document.createElement('div');
-  typing.innerHTML = `<div class="cp-msg-bubble" style="color:var(--ink-35);font-style:italic;">Typing…</div>`;
+  typing.innerHTML = `<div class="cp-msg-bubble" style="color:var(--ink-35);font-style:italic;font-size:0.78rem;">Robert is typing&hellip;</div>`;
   msgs.appendChild(typing);
   msgs.scrollTop = msgs.scrollHeight;
 
+  // Slightly longer delay — feels more human, less bot
   setTimeout(() => {
     msgs.removeChild(typing);
     const reply = document.createElement('div');
     reply.innerHTML = `
-      <div class="cp-msg-bubble">${replies[replyIndex % replies.length]}</div>
-      <div class="cp-msg-time">Just now</div>
+      <div class="cp-msg-bubble">${agentReplies[replyIndex % agentReplies.length]}</div>
+      <div class="cp-msg-time">Robert Milne &nbsp;·&nbsp; Just now</div>
     `;
     replyIndex++;
     msgs.appendChild(reply);
     msgs.scrollTop = msgs.scrollHeight;
-  }, 950);
+  }, 1100 + Math.random() * 400); // 1.1–1.5s — natural variation
 }
 
 function sendChip(btn) {

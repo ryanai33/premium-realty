@@ -6,7 +6,7 @@
 <title>Premium Real Estate — Curators of New Zealand's Most Exclusive Luxury Real Estate</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -40,12 +40,10 @@
   <div class="hero-scrim"></div>
 
   <div class="hero-body">
-    <p class="hero-eyebrow">Auckland North Shore &nbsp;·&nbsp; Coastal &nbsp;·&nbsp; Lifestyle &nbsp;·&nbsp; Executive</p>
-
     <h1 class="hero-h1">
       Curators of New Zealand&rsquo;s Most Exclusive
       <span class="luxury">Luxury</span>
-      Real Estate: Coastal, Lifestyle, and Executive Residences on Auckland&rsquo;s North Shore and Beyond
+      Real Estate on Auckland&rsquo;s North Shore and Beyond
     </h1>
 
     <div class="hero-search">
@@ -67,6 +65,36 @@
   </div>
 </section>
 
+<!-- ══════════════════════════════════════════
+     SOLD TICKER — implies transaction volume
+     Scrolls continuously, pauses on hover
+══════════════════════════════════════════ -->
+<div class="sold-ticker">
+  <div class="sold-ticker-inner" id="ticker">
+    <!-- Block repeated twice for seamless loop -->
+    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Mairangi Bay <span class="t-price">$4,200,000</span></span>
+    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Takapuna Beach <span class="t-price">$3,850,000</span></span>
+    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Devonport <span class="t-price">$2,975,000</span></span>
+    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Hauraki <span class="t-price">$5,100,000</span></span>
+    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Northcote Point <span class="t-price">$3,200,000</span></span>
+    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Birkenhead <span class="t-price">$2,450,000</span></span>
+    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Browns Bay <span class="t-price">$1,980,000</span></span>
+    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Castor Bay <span class="t-price">$3,600,000</span></span>
+    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Milford <span class="t-price">$4,750,000</span></span>
+    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Snells Beach <span class="t-price">$2,800,000</span></span>
+    <!-- Duplicate for seamless scroll -->
+    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Mairangi Bay <span class="t-price">$4,200,000</span></span>
+    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Takapuna Beach <span class="t-price">$3,850,000</span></span>
+    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Devonport <span class="t-price">$2,975,000</span></span>
+    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Hauraki <span class="t-price">$5,100,000</span></span>
+    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Northcote Point <span class="t-price">$3,200,000</span></span>
+    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Birkenhead <span class="t-price">$2,450,000</span></span>
+    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Browns Bay <span class="t-price">$1,980,000</span></span>
+    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Castor Bay <span class="t-price">$3,600,000</span></span>
+    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Milford <span class="t-price">$4,750,000</span></span>
+    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Snells Beach <span class="t-price">$2,800,000</span></span>
+  </div>
+</div>
 
 <!-- ══════════════════════════════════════════
      FEATURED PROPERTY — 21 Brighton Terrace
@@ -188,6 +216,7 @@
       <div class="card reveal">
         <div class="card-img-wrap">
           <img class="card-img" src="images/takapuna.jpg" alt="Takapuna — luxury freestanding residence">
+          <img class="card-img-alt" src="images/thumb2.jpg" alt="Takapuna interior">
           <div class="card-overlay"><div class="card-cta">Request Viewing</div></div>
         </div>
         <div class="card-body">
@@ -207,6 +236,7 @@
       <div class="card reveal d1">
         <div class="card-img-wrap">
           <img class="card-img" src="images/hauraki.jpg" alt="Hauraki — idyllic garden residence">
+          <img class="card-img-alt" src="images/thumb3.jpg" alt="Hauraki interior">
           <div class="card-overlay"><div class="card-cta">Request Viewing</div></div>
         </div>
         <div class="card-body">
@@ -226,6 +256,7 @@
       <div class="card reveal d2">
         <div class="card-img-wrap">
           <img class="card-img" src="images/snells.jpg" alt="Snells Beach — coastal waterfront home">
+          <img class="card-img-alt" src="images/thumb4.jpg" alt="Snells Beach interior">
           <div class="card-overlay"><div class="card-cta">Request Viewing</div></div>
         </div>
         <div class="card-body">
@@ -248,6 +279,7 @@
 <!-- ══════════════════════════════════════════
      SPECIALISTS — Robert & Richard Milne
 ══════════════════════════════════════════ -->
+<div class="gold-divider"></div>
 <section class="agents" id="agents">
   <div class="agents-inner">
     <div class="reveal">
@@ -282,7 +314,7 @@
           <div class="agent-contacts">
             <a href="tel:+64220112494" class="a-btn a-primary">&#9990; 022 011 2494</a>
             <a href="#" class="a-btn a-secondary">&#128172; WhatsApp</a>
-            <a href="mailto:RobertMilne@premium.co.nz" class="a-btn a-secondary">&#9993; Email</a>
+            <a href="/cdn-cgi/l/email-protection#affdc0cdcadddbe2c6c3c1caefdfddcac2c6dac281ccc081c1d5" class="a-btn a-secondary">&#9993; Email</a>
           </div>
         </div>
       </div>
@@ -312,7 +344,7 @@
           <div class="agent-contacts">
             <a href="tel:+64217706110" class="a-btn a-primary">&#9990; 021 770 611</a>
             <a href="#" class="a-btn a-secondary">&#128172; WhatsApp</a>
-            <a href="mailto:themilnes@premium.co.nz" class="a-btn a-secondary">&#9993; Email</a>
+            <a href="/cdn-cgi/l/email-protection#16627e737b7f7a787365566664737b7f637b38757938786c" class="a-btn a-secondary">&#9993; Email</a>
           </div>
         </div>
       </div>
@@ -343,21 +375,21 @@
 
     <div class="about-stats reveal d2">
       <div class="a-stat">
-        <div class="a-num">40+</div>
+        <div class="a-num"><span class="counter" data-target="40">0</span>+</div>
         <div class="a-desc">
           <strong>Years of expertise</strong>
           Four decades representing New Zealand&rsquo;s finest coastal and lifestyle properties.
         </div>
       </div>
       <div class="a-stat">
-        <div class="a-num">12</div>
+        <div class="a-num"><span class="counter" data-target="12">0</span></div>
         <div class="a-desc">
           <strong>Regional specialist teams</strong>
           North Shore to Waiheke Island, Matakana Coast to Mangawhai.
         </div>
       </div>
       <div class="a-stat">
-        <div class="a-num">NZ#1</div>
+        <div class="a-num" style="font-size:2.2rem;">NZ#1</div>
         <div class="a-desc">
           <strong>Milne Team 2018–2025</strong>
           Consistently New Zealand&rsquo;s top-performing premium real estate team.
@@ -383,7 +415,7 @@
         <p class="f-tagline">New Zealand&rsquo;s finest coastal, lifestyle, and executive properties since 1984.</p>
         <div class="f-contact">
           <a href="tel:+6494916000">(+64 9) 916 6000</a>
-          <a href="mailto:info@premium.co.nz">info@premium.co.nz</a>
+          <a href="/cdn-cgi/l/email-protection#afc6c1c9c0efdfddcac2c6dac281ccc081c1d5"><span class="__cf_email__" data-cfemail="cca5a2aaa38cbcbea9a1a5b9a1e2afa3e2a2b6">[email&#160;protected]</span></a>
           <span>Takapuna &nbsp;·&nbsp; North Shore &nbsp;·&nbsp; Auckland</span>
         </div>
         <div class="f-socials">
@@ -485,8 +517,7 @@
   <div class="cp-messages" id="cp-msgs">
     <div>
       <div class="cp-msg-bubble">
-        Kia ora &mdash; welcome to Premium Real Estate. I&rsquo;m here to help you find exceptional properties
-        across New Zealand&rsquo;s North Shore and beyond. How can I assist you today?
+        Welcome to Premium Real Estate. I&rsquo;m here to help you find exceptional properties across New Zealand&rsquo;s North Shore and beyond. How can I assist you today?
       </div>
       <div class="cp-msg-time">Just now</div>
     </div>
@@ -501,12 +532,4 @@
 
   <div class="cp-input-row">
     <input class="cp-input" id="cp-in" type="text" placeholder="Ask about our properties&hellip;">
-    <button class="cp-send" onclick="sendMessage()">Send</button>
-  </div>
-  <div class="cp-footer-note">Premium Real Estate &nbsp;·&nbsp; North Shore Auckland &nbsp;·&nbsp; Est. 1984</div>
-</div>
-
-
-<script src="js/main.js"></script>
-</body>
-</html>
+    <button class="cp-sen
